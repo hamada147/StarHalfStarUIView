@@ -128,6 +128,12 @@ class HalfStarShapeUIView: UIView {
         
         self.emptyColour.setFill()
         emptyStar.fill()
+        
+        // set UIView Shadow
+        self.layer.masksToBounds = false
+        self.layer.shadowOffset = CGSize(width: -1.0, height: 4.0)
+        self.layer.shadowRadius = 5
+        self.layer.shadowOpacity = 0.5
     }
 
 }
