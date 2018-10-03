@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class StarShapeUIView: UIView {
     
     // MARK:- Class Variables
@@ -19,7 +20,7 @@ class StarShapeUIView: UIView {
     private let p4Xperc: CGFloat = 22
     private let p5Xperc: CGFloat = 35
     private let p6Yperc: CGFloat = 75
-    public var fillColour: UIColor = UIColor.orange
+    @IBInspectable var fillColour: UIColor = UIColor.orange
     
     // MARK:- initializer
     override init(frame: CGRect) {
