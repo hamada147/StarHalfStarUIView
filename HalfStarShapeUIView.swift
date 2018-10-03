@@ -19,11 +19,15 @@ class HalfStarShapeUIView: UIView {
     private let p4Xperc: CGFloat = 22
     private let p5Xperc: CGFloat = 35
     private let p6Yperc: CGFloat = 75
+    public var fillColour: UIColor = UIColor.orange
+    public var emptyColour: UIColor = UIColor.lightGray
     
     // MARK:- initializer
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clear
+        self.fillColour = UIColor.orange
+        self.emptyColour = UIColor.lightGray
         if (frame.width != frame.height) {
             fatalError("Width must equal height")
         }
@@ -31,6 +35,9 @@ class HalfStarShapeUIView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        self.backgroundColor = UIColor.clear
+        self.fillColour = UIColor.orange
+        self.emptyColour = UIColor.lightGray
         if (self.frame.width != self.frame.height) {
             fatalError("Width must equal height")
         }
@@ -107,8 +114,19 @@ class HalfStarShapeUIView: UIView {
         self.path.close()
         
         // set colour
-        UIColor.orange.setFill()
+        self.fillColour.setFill()
         self.path.fill()
+        
+        let emptyStar: UIBezierPath = UIBezierPath()
+        emptyStar.move(to: firstPoint)
+        emptyStar.addLine(to: secondPoint)
+        emptyStar.addLine(to: thirdPoint)
+        emptyStar.addLine(to: fouthPoint)
+        emptyStar.addLine(to: fivthPoint)
+        emptyStar.addLine(to: sixthPoint)
+        
+        self.emptyColour.setFill()
+        emptyStar.fill()
     }
 
 }
