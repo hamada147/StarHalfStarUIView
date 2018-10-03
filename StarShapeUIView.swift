@@ -19,11 +19,13 @@ class StarShapeUIView: UIView {
     private let p4Xperc: CGFloat = 22
     private let p5Xperc: CGFloat = 35
     private let p6Yperc: CGFloat = 75
+    public var fillColour: UIColor = UIColor.orange
     
     // MARK:- initializer
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clear
+        self.fillColour = UIColor.orange
         if (frame.width != frame.height) {
             fatalError("Width must equal height")
         }
@@ -31,6 +33,7 @@ class StarShapeUIView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        self.backgroundColor = UIColor.clear
         if (self.frame.width != self.frame.height) {
             fatalError("Width must equal height")
         }
@@ -104,7 +107,7 @@ class StarShapeUIView: UIView {
         self.path.apply(mirrorOverXOrigin)
         self.path.apply(translate)
         
-        UIColor.orange.setFill()
+        self.fillColour.setFill()
         self.path.fill()
         
         self.path.move(to: firstPoint)
@@ -116,7 +119,7 @@ class StarShapeUIView: UIView {
         self.path.close()
         
         // set colour
-        UIColor.orange.setFill()
+        self.fillColour.setFill()
         self.path.fill()
     }
     
