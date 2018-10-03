@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class HalfStarShapeUIView: UIView {
 
     // MARK:- Class Variables
@@ -19,8 +20,8 @@ class HalfStarShapeUIView: UIView {
     private let p4Xperc: CGFloat = 22
     private let p5Xperc: CGFloat = 35
     private let p6Yperc: CGFloat = 75
-    public var fillColour: UIColor = UIColor.orange
-    public var emptyColour: UIColor = UIColor.lightGray
+    @IBInspectable var fillColour: UIColor = UIColor.orange
+    @IBInspectable var emptyColour: UIColor = UIColor.lightGray
     
     // MARK:- initializer
     override init(frame: CGRect) {
